@@ -4,9 +4,9 @@
 event_inherited();
 
 //sprites 
-spr_right = spr_player_right;
-spr_left = spr_player_left;
-spr_up = spr_player_up;
-spr_down = spr_player_down;
+spr_right = spr_player_right_4;
+spr_left = spr_player_left_4;
+spr_up = spr_player_up_4;
+spr_down = spr_player_down_4;
 
-image_blend = c_ltgray;
+player_name = "p4";

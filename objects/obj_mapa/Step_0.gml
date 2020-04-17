@@ -8,3 +8,11 @@ if (num_players == 0)
 {
 	room_restart();
 }
+
+if (global.total_blocks < 0)
+{
+	global.level++;
+	show_debug_message("Level:" + string(global.level));
+
+	room_restart();	
+}

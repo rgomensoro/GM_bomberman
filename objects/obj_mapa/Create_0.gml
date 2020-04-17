@@ -4,7 +4,11 @@
 //Criando os blocos externos (Linhas e colunas)
 grid_size = 32;
 
+show_debug_message("Create obj_mapa");
+
 num_players = 0;
+global.total_blocks = 0;
+
 
 for (i = 0; i < 4; i ++)
 {
@@ -13,7 +17,7 @@ for (i = 0; i < 4; i ++)
 
 randomise();
 
-var tam = irandom_range(16,24);
+var tam = 8 + (global.level);
 
 room_width = tam * grid_size;
 room_height = tam * grid_size;
@@ -29,40 +33,6 @@ for (var i = 0; i < col; i++)
 
 	for (var j = 0; j < lin; j++)
 	{
-
-		// Posições iniciais dos players	
-		//criando players 
-		//P1
-		if ((i == 1 && j == 1) && global.active_players[0])
-		{
-			o_player1 = instance_create_layer(i*grid_size, j*grid_size, "Player", obj_player_1);
-			
-			scr_define_control(o_player1, players.p1);
-		}
-		
-		//P2
-		if ((i == col-2 && j == lin-2) && global.active_players[1])
-		{
-			o_player2 = instance_create_layer(i*grid_size, j*grid_size, "Player", obj_player_2);
-			
-			scr_define_control(o_player2, players.p2);
-		}
-		
-		//P3
-		if ((i==1 && j==lin-2) && global.active_players[2])
-		{
-			o_player3 = instance_create_layer(i*grid_size, j*grid_size, "Player", obj_player_3);
-			
-			scr_define_control(o_player3, players.p3);
-		}
-		
-		//P4
-		if ((i==col-2 && j==1) && global.active_players[3])
-		{
-			o_player4 = instance_create_layer(i*grid_size, j*grid_size, "Player", obj_player_4);
-			
-			scr_define_control(o_player4, players.p4);
-		}
 		
 		var player_1 = !((i == 1 && j == 1) || (i == 1 && j == 2) || (i==2 && j == 1));
 		var player_2 = !((i == col-2 && j == 1) || (i == col-2 && j == 2) || (i==col-3 && j == 1));
@@ -92,6 +62,9 @@ for (var i = 0; i < col; i++)
 				{
 					var block = instance_create_layer(i*grid_size, j*grid_size, "Level", obj_block);
 					block.destructable = true;
+					
+					show_debug_message("Num Blocks:" + string(global.total_blocks));
+					global.total_blocks++;
 				
 				}
 				
@@ -100,4 +73,33 @@ for (var i = 0; i < col; i++)
 	}	
 }
 
+// Posições iniciais dos players	
+//criando players 
+//P1
+if (global.active_players[0])
+{
+	o_player1 = instance_create_layer(1*grid_size, 1*grid_size, "Player", obj_player_1);
+	scr_define_control(o_player1, players.p1);
+}
+		
+//P2
+if (global.active_players[1])
+{
+	o_player2 = instance_create_layer((col-2)*grid_size, (lin-2)*grid_size, "Player", obj_player_2);	
+	scr_define_control(o_player2, players.p2);
+}
+		
+//P3
+if (global.active_players[2])
+{
+	o_player3 = instance_create_layer(1*grid_size, (lin-2)*grid_size, "Player", obj_player_3);		
+	scr_define_control(o_player3, players.p3);
+}
+		
+//P4
+if (global.active_players[3])
+{
+	o_player4 = instance_create_layer((col-2)*grid_size, 1*grid_size, "Player", obj_player_4);			
+	scr_define_control(o_player4, players.p4);
+}
 

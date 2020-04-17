@@ -4,9 +4,9 @@
 event_inherited();
 
 //sprites 
-spr_right = spr_player_right;
-spr_left = spr_player_left;
-spr_up = spr_player_up;
-spr_down = spr_player_down;
+spr_right = spr_player_right_3;
+spr_left = spr_player_left_3;
+spr_up = spr_player_up_3;
+spr_down = spr_player_down_3;
 
-image_blend = c_aqua;
+player_name = "p3";

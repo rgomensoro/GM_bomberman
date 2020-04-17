@@ -3,7 +3,10 @@
 
 
 morto = false;
-face = 0;
+
+//starting with facing down
+face = 3;
+
 total_bombas = 5;
 bomba_potencia = 1;
 
