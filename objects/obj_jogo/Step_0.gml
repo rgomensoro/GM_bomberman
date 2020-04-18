@@ -52,3 +52,39 @@ if (room == rm_inicio)
 		}
 	}
 }
+
+if (room == rm_controls)
+{
+	if (keyboard_check_pressed(vk_right))
+	{
+		players_count ++;
+		
+		if (select == array_length_1d(player_names))
+			players_count = 0;
+
+		var player;
+
+		switch (players_count)
+		{
+		
+			case 0:
+				scr_define_control(player, players.p1);
+				break;			
+			case 1:
+				scr_define_control(player, players.p1);
+				break;			
+			case 2:
+				scr_define_control(player, players.p1);
+				break;			
+			case 3:
+				scr_define_control(player, players.p1);
+				break;			
+		}
+
+
+	}
+
+	
+	
+	
+}
