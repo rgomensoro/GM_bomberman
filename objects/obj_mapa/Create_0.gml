@@ -22,7 +22,7 @@ var tam = 8 + (global.level);
 room_width = tam * grid_size;
 room_height = tam * grid_size;
 
-camera_set_view_size(view_camera[0],room_width, room_height);
+//camera_set_view_size(view_camera[0],room_width, room_height);
 
 var col = tam;
 var lin = tam;

@@ -91,12 +91,10 @@ if (!morto)
 }
 else
 {	
-	
 	//estou morto x__X
 	image_blend = c_red;
 	
 	alpha = lerp(alpha,0.2,0.01);
-	
 	image_alpha = alpha;
 	
 	if (avisar)

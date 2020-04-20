@@ -10,3 +10,6 @@ spr_up = spr_player_up_3;
 spr_down = spr_player_down_3;
 
 player_name = "p3";
+life = 3;
+initial_pos_life = 20;
+

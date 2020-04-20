@@ -6,7 +6,7 @@ grid_size = 32;
 
 if (num_players == 0)
 {
-	room_restart();
+	game_restart();
 }
 
 if (global.total_blocks < 0)
