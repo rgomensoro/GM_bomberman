@@ -36,4 +36,9 @@ if (room == rm_inicio)
 	}
 }
 
+if (room == rm_controls)
+{
+
+
+}
 

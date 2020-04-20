@@ -5,6 +5,10 @@ select = 0;
 
 options = ["1 Player", "2 Players", "3 Players", "4 Players", "Controls"];
 
+player_names = ["Player 1", "Player 2", "Player 3", "Player 4"];
+players_count = 0;
+
+
 enum players 
 {
 	p1, p2, p3, p4
