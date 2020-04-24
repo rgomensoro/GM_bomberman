@@ -12,4 +12,5 @@ spr_up = spr_player_up;
 spr_down = spr_player_down;
 
 player_name = "p1";
+player_pos = 0;
 initial_pos_life = 20;

@@ -46,7 +46,15 @@ if (room == rm_inicio)
 				break;
 
 			case 4:
-				scr_room_transition(rm_controls);				
+				select = 0; //reseta cursos do menu
+				//carrega player 1
+				
+				for (i = 0; i < array_length_1d(key_options); i ++)
+				{
+					key_options[i] = scr_converte_tecla(global.players_controls[# select, i]);
+				}
+						
+				room_goto(rm_controls);				
 				break;
 			
 		}
@@ -55,55 +63,88 @@ if (room == rm_inicio)
 
 if (room == rm_controls)
 {
-	right = keyboard_check_pressed(vk_right);
-	left = keyboard_check_pressed(vk_left);
-	
-	if (right || left)
+
+	up = keyboard_check_pressed(vk_up);
+	down = keyboard_check_pressed(vk_down);
+
+	if (up)
 	{
-		
-		if (right)
-		{
-			players_count ++;
-		
-			if (select == array_length_1d(player_names))
-				players_count = 0;
-		}
-		
-		if (left)
-		{
-			players_count --;
-		
-			if (select == array_length_1d(player_names))
-				players_count = 0;
-		}
+		menu_options --;
 
-		var player = [];
-
-		switch (players_count)
-		{
-		
-			case 0:
-				scr_define_control(player, players.p1);
-				break;			
-			case 1:
-				scr_define_control(player, players.p1);
-				break;			
-			case 2:
-				scr_define_control(player, players.p1);
-				break;			
-			case 3:
-				scr_define_control(player, players.p1);
-				break;			
-		}
-
-		show_debug_message( string(player.controles[0]));
-		show_debug_message( string(player.controles[1]));
-		show_debug_message( string(player.controles[2]));
-		show_debug_message( string(player.controles[3]));
-		show_debug_message( string(player.controles[4]));
+		if (menu_options < 0)
+			menu_options = 6;	
 	}
 
+	if (down)
+	{
+		menu_options ++;
+
+		if (menu_options > 6)
+			menu_options = 0;	
+	}
+
+
+	switch (menu_options)
+	{
+		// menu player
+		case 0:
+
+			right = keyboard_check_pressed(vk_right);
+			left = keyboard_check_pressed(vk_left);
 	
-	
-	
+			if (right || left)
+			{
+		
+				if (right)
+				{
+					select ++;
+		
+					if (select == array_length_1d(player_names))
+						select = 0;			
+				}
+		
+				if (left)
+				{
+					select --;
+		
+					if (select < 0)
+						select = array_length_1d(player_names) - 1;
+				}
+
+				for (i = 0; i < array_length_1d(key_options); i ++)
+				{
+					key_options[i] = scr_converte_tecla(global.players_controls[# select, i]);
+				}
+			}
+
+		break;	
+		
+		case 1:
+		case 2:
+		case 3:
+		case 4:
+		case 5:
+				
+			if (keyboard_key)
+			{			
+				key_options[menu_options-1] = scr_converte_tecla(keyboard_key);		
+				global.players_controls[# select, menu_options-1] = keyboard_key;
+			}
+			//room_goto(rm_inicio);
+
+			break;
+		
+		case 6:
+
+			enter = keyboard_check_pressed(vk_enter);
+			
+			if (enter)
+			{
+				//retorna
+				room_goto(rm_inicio);
+			}
+		
+			break;
+
+	}
 }

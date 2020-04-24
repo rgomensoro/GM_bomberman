@@ -1,9 +1,9 @@
 /// @description Insert description here
 // You can write your code in this editor
 
-if (life > 0)
+if (global.life[player_pos] > 0)
 {
-	life --;
+	global.life[player_pos] --;
 	x = init_x;
 	y = init_y;
 	image_blend = c_white;	

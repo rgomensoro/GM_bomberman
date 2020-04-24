@@ -2,7 +2,7 @@
 {
     "name": "rm_controls",
     "id": "493bdaa5-580f-40fe-b482-4f4d132173a5",
-    "creationCodeFile": "",
+    "creationCodeFile": "RoomCreationCode.gml",
     "inheritCode": false,
     "inheritCreationOrder": false,
     "inheritLayers": false,
@@ -88,7 +88,7 @@
             "m_serialiseFrozen": false,
             "modelName": "GMRBackgroundLayer",
             "mvc": "1.0",
-            "spriteId": "d365fe63-8dc4-45b2-8bc9-893cd267cdfe",
+            "spriteId": "0e19372e-f6a1-447c-acd6-16660501cb28",
             "stretch": true,
             "userdefined_animFPS": false,
             "userdefined_depth": false,

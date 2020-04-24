@@ -102,4 +102,3 @@ if (global.active_players[3])
 	o_player4 = instance_create_layer((col-2)*grid_size, 1*grid_size, "Player", obj_player_4);			
 	scr_define_control(o_player4, players.p4);
 }
-

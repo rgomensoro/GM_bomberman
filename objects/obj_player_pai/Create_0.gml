@@ -8,7 +8,7 @@ init_y = y;
 
 //starting with facing down
 face = 3;
-life = 3;
+
 
 total_bombas = 5;
 bomba_potencia = 1;
