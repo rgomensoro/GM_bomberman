@@ -5,7 +5,7 @@
 morto = false;
 
 // init velocity
-vel = 0.5;
+vel = 1.6;
 velh = 0;
 velv = 0;
 

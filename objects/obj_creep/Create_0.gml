@@ -10,5 +10,3 @@ spr_up = spr_enemy_up;
 spr_down = spr_enemy_down;
 
 player_name = "e1";
-player_pos = 0;
-initial_pos_life = 20;
