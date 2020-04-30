@@ -5,9 +5,10 @@
 morto = false;
 
 // init velocity
-vel = 1.6;
+vel = 0.4;
 velh = 0;
 velv = 0;
+alpha = 1;
 
 // grid size init
 grid_size = 32;

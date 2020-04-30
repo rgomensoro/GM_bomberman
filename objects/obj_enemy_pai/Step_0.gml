@@ -116,6 +116,7 @@ if (!morto)
 		if (velh < 0) sprite_index = spr_left;
 		if (velv < 0) sprite_index = spr_up;
 		if (velv > 0) sprite_index = spr_down;
+	
 		
 	}
 

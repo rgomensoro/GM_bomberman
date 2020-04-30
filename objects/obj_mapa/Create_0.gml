@@ -3,6 +3,9 @@
 
 //Criando os blocos externos (Linhas e colunas)
 grid_size = 32;
+creeps = 1;
+
+randomize();
 
 show_debug_message("Create obj_mapa");
 
@@ -46,8 +49,7 @@ for (var i = 0; i < col; i++)
 
 		//Criando as paredes externas		
 		if (parede || meio && posso && !bordas)
-		{
-					
+		{		
 			var block = instance_create_layer(i*grid_size, j*grid_size, "Level", obj_block);	
 			block.destructable = false;
 		}
@@ -65,6 +67,24 @@ for (var i = 0; i < col; i++)
 					
 					show_debug_message("Num Blocks:" + string(global.total_blocks));
 					global.total_blocks++;
+				
+				}
+				else
+				{
+					show_debug_message("Espaco livre");
+					if (creeps != 0)
+					{
+						var newcreeps = irandom(100);
+
+						if (newcreeps < 10)
+						{
+							show_debug_message("Tem creeps " + string(creeps));
+							creeps --;
+							instance_create_layer(i*grid_size, j*grid_size, "Player", obj_creep);
+						}
+						else
+							show_debug_message("Espaco livre");
+					}
 				
 				}
 				
@@ -102,3 +122,5 @@ if (global.active_players[3])
 	o_player4 = instance_create_layer((col-2)*grid_size, 1*grid_size, "Player", obj_player_4);			
 	scr_define_control(o_player4, players.p4);
 }
+
+instance_create_layer((col-2)*grid_size, (lin-2)*grid_size, "Player", obj_creep);	
